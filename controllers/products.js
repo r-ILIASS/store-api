@@ -12,7 +12,6 @@ const getAllProducts = async (req, res) => {
   let limit = 10;
   let page = 1;
   let skip = 0;
-  let numericFilters = {};
 
   // Cheking for query parameters
   if ("featured" in req.query) {
