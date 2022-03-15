@@ -12,8 +12,10 @@ const start = async () => {
     await Product.deleteMany();
     await Product.create(dummyData);
     console.log("The database is populated");
+    process.exit(0);
   } catch (error) {
     console.log(error);
+    process.exit(1);
   }
 };
 
