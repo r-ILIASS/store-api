@@ -100,6 +100,7 @@ function checkQuery(queryObj) {
     selectStr,
     limit,
     skip,
+    page,
   };
 }
 

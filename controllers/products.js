@@ -7,7 +7,9 @@ const getAllProductsStatic = async (req, res) => {
 };
 
 const getAllProducts = async (req, res) => {
-  const { query, sortStr, selectStr, limit, skip } = checkQuery(req.query);
+  const { query, sortStr, selectStr, limit, skip, page } = checkQuery(
+    req.query
+  );
 
   // Fetching products
   const products = await Product.find(query)
@@ -15,7 +17,7 @@ const getAllProducts = async (req, res) => {
     .select(selectStr)
     .limit(limit)
     .skip(skip);
-  res.status(200).json(products);
+  res.status(200).json({ metadata: { limit, page }, data: products });
 };
 
 module.exports = {
